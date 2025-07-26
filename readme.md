@@ -1,6 +1,6 @@
 # Textbook RAG
 
-A Retrieval-Augmented Generation (RAG) system for Bangla and English textbook content, supporting semantic search and question answering.
+A Retrieval-Augmented Generation (RAG) system for HSC26 Bangla 1st paper book as knowledge base. Implemented self-consistency prompting.
 
 ---
 
@@ -87,24 +87,32 @@ Output:
 ```
 "Yes, Anupam is a character in the story "Aparichita." He is portrayed as an educated but personality-lacking individual who is heavily dependent on his mother and uncle. Despite his education, Anupam lacks independence and is unable to stand up against injustice, as seen when he remains silent during the dowry-related humiliation at his wedding. "
 ```
+**Codeswitched Example:**
+```
+"konna ke ashirbad korar jonno kake pathano holo?"
+```
+Output:
+```
+কন্যাকে আশীর্বাদ করার জন্য বিনুদাদাকে পাঠানো হয়েছিল।
+```
+How self consistency prompting helped to get this answer can be traced down in the bot_test_cli_texts3.txt. At first the chatbot answered "কন্যাকে আশীর্বাদ করার জন্য অনুপমের মামাকে পাঠানো হয়েছিল।" Then after prompting again, with the answer added this time, it output "কন্যাকে আশীর্বাদ করার জন্য বিনুদাদাকে পাঠানো হয়েছিল।". Then this output is again prompted and the bot answered correctly to get the majority vote on the correct answer.
 
----
+<!-- ---
 
-## API Documentation
+<!-- ## API Documentation
 
 <!-- 
 - `POST /query`
   - **Input:** `{ "query": "Your question here" }`
-  - **Output:** `{ "answer": "Relevant answer from textbook" }` -->
+  - **Output:** `{ "answer": "Relevant answer from textbook" }
 
----
 
 ## Evaluation
 <!-- 
 - **Metrics:** Precision, Recall, F1-score, MRR
-- **Method:** Manual annotation of retrieved answers vs. ground truth -->
+- **Method:** Manual annotation of retrieved answers vs. ground truth --> 
 
----
+
 
 ## Project Questions & Answers
 

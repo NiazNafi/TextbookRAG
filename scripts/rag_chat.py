@@ -3,7 +3,6 @@ from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_community.vectorstores import Chroma
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 import os
 
@@ -13,6 +12,7 @@ LLM_MODEL = "gpt-4o"
 SELF_CONSISTENCY_RUNS = 3
 
 load_dotenv()
+
 api_key = os.getenv("OPENAI_API_KEY")
 
 embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
@@ -29,39 +29,20 @@ llm = ChatOpenAI(model=LLM_MODEL,
                  openai_api_key=api_key,
                  temperature=0.2)
 
-# Custom QA prompt
-custom_prompt_template = """
-You will answer questions using only the  (knowledge base).
-If the answer to the question is not in the context, say:
-"আমার এ সম্পর্কে ধারনা নেই"
-
-context:
-{context}
-
-question:
-{question}
-
-"""
-
-QA_PROMPT = PromptTemplate(
-    template=custom_prompt_template,
-    input_variables=["context", "question"]
-)
-
 qa_chain = ConversationalRetrievalChain.from_llm(
     llm=llm,
     retriever=retriever,
     memory=memory,
-    combine_docs_chain_kwargs={"prompt": QA_PROMPT},
     verbose=True
 )
 
-# Self Consistency Function
+#Self Consistency Function
 def self_consistent_answer(question):
     answers = []
     for _ in range(SELF_CONSISTENCY_RUNS):
         result = qa_chain.invoke({"question": question})
         answers.append(result["answer"])
+    
     return Counter(answers).most_common(1)[0][0]
 
 if __name__ == "__main__":
