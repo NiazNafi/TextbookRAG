@@ -1,6 +1,7 @@
 # Textbook RAG
 
-A Retrieval-Augmented Generation (RAG) system for Bangla and English textbook content, supporting semantic search and question answering.
+A Retrieval-Augmented Generation (RAG) system for HSC26 Bangla 1st paper book as knowledge base. Implemented self-consistency prompting.
+
 
 ---
 
@@ -54,10 +55,11 @@ A Retrieval-Augmented Generation (RAG) system for Bangla and English textbook co
 - **Text Processing:**
   - `nltk`, `re`, `markdown`
 - **Embeddings & Vector Store:**
-  - `sentence-transformers`, `chromadb`
+  - `text-embedding-3-large`, `chromadb`
 - **Other:**
-  - `openai` (if using OpenAI embeddings), `langchain` (optional for RAG pipeline)
-
+  - `openai` , `langchain`
+## Databased created for this project
+-Available in `https://drive.google.com/drive/folders/10UJnfqMyF4D5k-83f952vVqf_YDgO_H7?usp=sharing`
 ---
 
 ## Sample Queries and Outputs
@@ -88,22 +90,28 @@ Output:
 "Yes, Anupam is a character in the story "Aparichita." He is portrayed as an educated but personality-lacking individual who is heavily dependent on his mother and uncle. Despite his education, Anupam lacks independence and is unable to stand up against injustice, as seen when he remains silent during the dowry-related humiliation at his wedding. "
 ```
 
----
+<!-- ---
 
-## API Documentation
+<!-- ## API Documentation
 
 <!-- 
 - `POST /query`
   - **Input:** `{ "query": "Your question here" }`
-  - **Output:** `{ "answer": "Relevant answer from textbook" }` -->
+  - **Output:** `{ "answer": "Relevant answer from textbook" }
 
----
+
+## Evaluation
+<!-- 
+- **Metrics:** Precision, Recall, F1-score, MRR
+- **Method:** Manual annotation of retrieved answers vs. ground truth --> 
+
+
 
 ## Evaluation
 <!-- 
 - **Metrics:** Precision, Recall, F1-score, MRR
 - **Method:** Manual annotation of retrieved answers vs. ground truth -->
-
+-->
 ---
 
 ## Project Questions & Answers
