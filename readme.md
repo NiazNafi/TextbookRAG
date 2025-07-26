@@ -54,10 +54,11 @@ A Retrieval-Augmented Generation (RAG) system for HSC26 Bangla 1st paper book as
 - **Text Processing:**
   - `nltk`, `re`, `markdown`
 - **Embeddings & Vector Store:**
-  - `sentence-transformers`, `chromadb`
+  - `text-embedding-3-large`, `chromadb`
 - **Other:**
-  - `openai` (if using OpenAI embeddings), `langchain` (optional for RAG pipeline)
-
+  - `openai` , `langchain`
+## Databased created for this project
+-Available in `https://drive.google.com/drive/folders/10UJnfqMyF4D5k-83f952vVqf_YDgO_H7?usp=sharing`
 ---
 
 ## Sample Queries and Outputs
@@ -113,6 +114,13 @@ How self consistency prompting helped to get this answer can be traced down in t
 - **Method:** Manual annotation of retrieved answers vs. ground truth --> 
 
 
+
+## Evaluation
+<!-- 
+- **Metrics:** Precision, Recall, F1-score, MRR
+- **Method:** Manual annotation of retrieved answers vs. ground truth -->
+-->
+---
 
 ## Project Questions & Answers
 
