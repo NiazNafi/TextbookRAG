@@ -31,13 +31,14 @@ llm = ChatOpenAI(model=LLM_MODEL,
 
 # Custom QA prompt
 custom_prompt_template = """
-আপনি শুধুমাত্র প্রদত্ত কন্টেক্সট (জ্ঞানভাণ্ডার/knowledge) ব্যবহার করে উত্তর দিবেন।
-যদি প্রশ্নের উত্তর কন্টেক্সটে না থাকে, তবে বলুন: "আমার এ সম্পর্কে ধারনা নেই"
+You will answer questions using only the  (knowledge base).
+If the answer to the question is not in the context, say:
+"আমার এ সম্পর্কে ধারনা নেই"
 
-কন্টেক্সট:
+context:
 {context}
 
-প্রশ্ন:
+question:
 {question}
 
 """
